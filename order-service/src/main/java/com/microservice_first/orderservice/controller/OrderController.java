@@ -29,22 +29,22 @@ public class OrderController {
         return "pong";
     }
 
-//    @GetMapping("/user-info/{id}")
-//    public ResponseEntity<UserInfoDto> getUserInfo(@PathVariable("id") Long userId) {
-//
-//        /*
-//        * hashmap will be used if I have some more path variables and we then bind them in a key-value pair and
-//            pass that as a object.
-//        *
-//        * //HashMap<String, Long> uriVariables = new HashMap<>();
-//        * //uriVariables.put("id", userId);
-//        */
-//
-//        ResponseEntity<UserInfoDto> responseEntity = new RestTemplate().getForEntity("http://localhost:8080/user/{id}", UserInfoDto.class, userId);
-//        UserInfoDto userInfoDto = responseEntity.getBody();
-//
-//        return new ResponseEntity<UserInfoDto>(userInfoDto, HttpStatus.OK);
-//    }
+    @GetMapping("/user-info/{id}")
+    public ResponseEntity<UserInfoDto> getUserInfo(@PathVariable("id") Long userId) {
+
+        /*
+        * hashmap will be used if I have some more path variables and we then bind them in a key-value pair and
+            pass that as a object.
+        *
+        * //HashMap<String, Long> uriVariables = new HashMap<>();
+        * //uriVariables.put("id", userId);
+        */
+
+        ResponseEntity<UserInfoDto> responseEntity = new RestTemplate().getForEntity("http://localhost:8080/user/{id}", UserInfoDto.class, userId);
+        UserInfoDto userInfoDto = responseEntity.getBody();
+
+        return new ResponseEntity<UserInfoDto>(userInfoDto, HttpStatus.OK);
+    }
 
     @GetMapping("/user-info-feign/{id}")
     public ResponseEntity<UserInfoDto> getUserInfoByFeign(@PathVariable("id") Long userId) {
